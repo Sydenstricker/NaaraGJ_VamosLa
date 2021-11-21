@@ -53,10 +53,11 @@
     <UnityVersion>2020.3.21f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\TrocaScene.cs" />
+    <Compile Include="Assets\Scripts\PressEnter.cs" />
     <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
-    <Compile Include="Assets\Scripts\PressEnter.cs" />
+    <Compile Include="Assets\Scripts\TrocaScene.cs" />
+    <Compile Include="Assets\Scripts\QuitButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

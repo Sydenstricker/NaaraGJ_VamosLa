@@ -32,20 +32,29 @@ public class AudioManager : MonoBehaviour
     {
         audio = GetComponent<AudioSource>();
         TocaMusic();
+        TocaSFX();
     }
-
-    // Update is called once per frame
     void Update()
     {
+        AtualizaVolumeSFX(volumeSFX);
         AtualizaVolumeMusic(volumeMusic);
     }
     private void TocaMusic()
     {
         audio.PlayOneShot(music, volumeMusic);
     }
+    private void TocaSFX()
+    {
+        audio.PlayOneShot(soundFX, volumeSFX);
+    }
     public void AtualizaVolumeMusic(float volume)
     {
         audio.GetComponent<AudioSource>().volume = volumeMusic;
         volumeMusic = volume;
+    }
+    public void AtualizaVolumeSFX(float volume2)
+    {
+        audio.GetComponent <AudioSource>().volume = volumeSFX;
+        volumeSFX = volume2;
     }
 }
