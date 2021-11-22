@@ -66,6 +66,10 @@
     <Compile Include="Assets\Scripts\uniqueZpos.cs" />
     <Compile Include="Assets\Scripts\animatorControll2D.cs" />
     <Compile Include="Assets\Scripts\TrocaScene.cs" />
+    <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\DamageDealer.cs" />
+    <Compile Include="Assets\GameManager.cs" />
+    <Compile Include="Assets\Singleton.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

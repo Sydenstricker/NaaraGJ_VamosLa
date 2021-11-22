@@ -11,29 +11,23 @@ public class AudioManager : MonoBehaviour
     [SerializeField] [Range(0f, 1f)] float volumeMusic = 0.5f;
     public AudioClip soundFX;
     [SerializeField] [Range(0, 1)] float volumeSFX = 0.75f;
+    public AudioClip hpNave;
+    [SerializeField] [Range(0, 1)] float volumehpNave = 0.75f;
+    [SerializeField] bool isMainMenu = false;
+    [SerializeField] bool isGameplay = false;
 
-    private void Awake()
-    {
-        SetUpSingleton();
-    }
-
-    private void SetUpSingleton()
-    {
-        int numberGameSessions = FindObjectsOfType<AudioManager>().Length;
-        if (numberGameSessions > 1)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-
-    }
+    
     void Start()
     {
         audio = GetComponent<AudioSource>();
-        TocaMusic();
+        if(isMainMenu)
+        {
+            TocaMusic();
+        }
+        if(isGameplay)
+        {
+            TocaMusicaGameplay();
+        }
         TocaSFX();
     }
     void Update()
@@ -69,4 +63,9 @@ public class AudioManager : MonoBehaviour
         audio.Stop();
         audio.PlayOneShot(music,volumeMusic);
     } 
+    public void HPNave()
+    {
+        audio.PlayOneShot(hpNave, volumehpNave);
+    }
+
 }
