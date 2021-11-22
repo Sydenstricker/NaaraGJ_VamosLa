@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class PressEnter : MonoBehaviour
 {
+    [SerializeField] bool isMainMenu = false;
     
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Return))
+        if(isMainMenu && Input.GetKeyDown(KeyCode.Return))
         {
+            FindObjectOfType<AudioManager>().TocaMusicaGameplay();
             SceneManager.LoadScene("Level 1");
 
         }
