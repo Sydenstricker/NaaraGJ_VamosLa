@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class playerControll : MonoBehaviour
 {
-    private movement2D movement;
+    private movement2D movement;   
 
     // Start is called before the first frame update
     void Awake()

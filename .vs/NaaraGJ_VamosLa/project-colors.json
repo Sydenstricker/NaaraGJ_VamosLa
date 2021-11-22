@@ -5,7 +5,12 @@
       "ProjectGuid": "c730fa4b-5d8c-bc68-3a2e-db323144da4b",
       "DisplayName": "Assembly-CSharp",
       "ColorIndex": 0
+    },
+    "4b09a554-3507-acc8-a514-280cbd510b19": {
+      "ProjectGuid": "4b09a554-3507-acc8-a514-280cbd510b19",
+      "DisplayName": "FMODUnityEditor",
+      "ColorIndex": 1
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 2
 }

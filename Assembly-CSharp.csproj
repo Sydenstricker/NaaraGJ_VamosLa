@@ -56,18 +56,22 @@
     <Compile Include="Assets\Scripts\repository.cs" />
     <Compile Include="Assets\Scripts\auxiliary.cs" />
     <Compile Include="Assets\Scripts\PressEnter.cs" />
+    <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\movement2D.cs" />
     <Compile Include="Assets\Scripts\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\colletable.cs" />
+    <Compile Include="Assets\Singleton.cs" />
     <Compile Include="Assets\Scripts\QuitButton.cs" />
+    <Compile Include="Assets\GameManager.cs" />
     <Compile Include="Assets\Scripts\playerControll.cs" />
+    <Compile Include="Assets\Scripts\DamageDealer.cs" />
     <Compile Include="Assets\Scripts\thingPush.cs" />
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\parallaxEffect.cs" />
     <Compile Include="Assets\Scripts\uniqueZpos.cs" />
     <Compile Include="Assets\Scripts\animatorControll2D.cs" />
-    <Compile Include="Assets\Scripts\TrocaScene.cs" />
-    <Compile Include="Assets\Scripts\colletable.cs" />
     <Compile Include="Assets\Scripts\inventory.cs" />
+    <Compile Include="Assets\Scripts\TrocaScene.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -744,22 +748,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="FMODUnityResonanceEditor.csproj">
-      <Project>{E05396FD-6F5D-0265-6063-E0DCE34ADB59}</Project>
-      <Name>FMODUnityResonanceEditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="FMODUnity.csproj">
-      <Project>{A66C760E-CA0D-1316-1521-062C12B52842}</Project>
-      <Name>FMODUnity</Name>
-    </ProjectReference>
-    <ProjectReference Include="FMODUnityEditor.csproj">
-      <Project>{4B09A554-3507-ACC8-A514-280CBD510B19}</Project>
-      <Name>FMODUnityEditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="FMODUnityResonance.csproj">
-      <Project>{C18B28A4-5533-1F00-B1C0-4ACC3F95BD83}</Project>
-      <Name>FMODUnityResonance</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
