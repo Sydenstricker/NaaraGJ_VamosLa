@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\parallaxEffect.cs" />
     <Compile Include="Assets\Scripts\animatorControll2D.cs" />
     <Compile Include="Assets\Scripts\TrocaScene.cs" />
+    <Compile Include="Assets\Scripts\uniqueZpos.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

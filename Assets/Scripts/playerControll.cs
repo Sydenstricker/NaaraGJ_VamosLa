@@ -46,13 +46,24 @@ public class playerControll : MonoBehaviour
             }
         }
 
+        animatorControll2D animatorControll = movement.GetAnimaControll();
+
         if (!isPushing)
         {
+            if(animatorControll.GetIdAnimaNow() == "Push")
+            {
+                animatorControll.SetNormalState();
+            }
+
             if (!movement.enabled)
             {
                 movement.enabled = true;
             }
             movement.MakeMove(move);
+        }
+        else if(animatorControll.GetIdAnimaNow() != "Push")
+        {
+            animatorControll.SetActionAnimation("Push", true, false);
         }
 
         if (Input.GetButtonDown("Jump"))
