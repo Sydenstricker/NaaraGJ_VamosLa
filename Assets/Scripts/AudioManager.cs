@@ -6,13 +6,10 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {  
     private AudioSource audio;
-    public AudioClip music;
+    public AudioClip musicMainMenu;
     public AudioClip musicGameplay;
-    [SerializeField] [Range(0f, 1f)] float volumeMusic = 0.5f;
-    public AudioClip soundFX;
-    [SerializeField] [Range(0, 1)] float volumeSFX = 0.75f;
-    public AudioClip hpNave;
-    [SerializeField] [Range(0, 1)] float volumehpNave = 0.75f;
+    [SerializeField] [Range(0f, 1f)] float volumeMusic = 0.5f;    
+    
     [SerializeField] bool isMainMenu = false;
     [SerializeField] bool isGameplay = false;
 
@@ -22,37 +19,28 @@ public class AudioManager : MonoBehaviour
         audio = GetComponent<AudioSource>();
         if(isMainMenu)
         {
-            TocaMusic();
+            TocaMusicMainMenu();
         }
         if(isGameplay)
         {
             TocaMusicaGameplay();
-        }
-        TocaSFX();
+        }        
     }
     void Update()
     {
-        AtualizaVolumeSFX(volumeSFX);
         AtualizaVolumeMusic(volumeMusic);
     }
-    private void TocaMusic()
+    private void TocaMusicMainMenu()
     {
-        audio.PlayOneShot(music, volumeMusic);
+        audio.PlayOneShot(musicMainMenu, volumeMusic);
     }
-    private void TocaSFX()
-    {
-        audio.PlayOneShot(soundFX, volumeSFX);
-    }
+    
     public void AtualizaVolumeMusic(float volume)
     {
         audio.GetComponent<AudioSource>().volume = volumeMusic;
         volumeMusic = volume;
     }
-    public void AtualizaVolumeSFX(float volume2)
-    {
-        audio.GetComponent <AudioSource>().volume = volumeSFX;
-        volumeSFX = volume2;
-    }
+    
     public void TocaMusicaGameplay()
     {
         audio.Stop();
@@ -61,11 +49,7 @@ public class AudioManager : MonoBehaviour
     public void TocaMusicaMainMenu()
     {
         audio.Stop();
-        audio.PlayOneShot(music,volumeMusic);
+        audio.PlayOneShot(musicMainMenu,volumeMusic);
     } 
-    public void HPNave()
-    {
-        audio.PlayOneShot(hpNave, volumehpNave);
-    }
 
 }
