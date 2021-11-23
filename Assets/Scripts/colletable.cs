@@ -13,7 +13,6 @@ public class colletable : MonoBehaviour
         {
             inv.AddItem(this);
             gameObject.SetActive(false);
-            repository.repositoryX.GetAudioSource().PlayOneShot(clipPlayGetted);
         }
     }
 }

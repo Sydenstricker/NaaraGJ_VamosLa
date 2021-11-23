@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public class animatorControll2D : MonoBehaviour
 {
     private Animator animator;

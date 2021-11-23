@@ -4,8 +4,6 @@ using UnityEngine;
 public class repository : MonoBehaviour
 {
     public static repository repositoryX;
-    [SerializeField]
-    private AudioSource audioSourceObj = null;
     /*[SerializeField]
     private AudioClip clipDash = null;*/
     /*[SerializeField]
@@ -29,16 +27,6 @@ public class repository : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
-        for(int i = 0; i < 64; i++)
-        {
-            AudioSource ad = Instantiate(audioSourceObj);
-            ad.transform.SetParent(transform);
-            ad.name = audioSourceObj.name;
-            audioSourcesList.Add(ad);
-        }
-    }
 
     /*public GameObject GetBallonsTalk()
     {
@@ -73,28 +61,6 @@ public class repository : MonoBehaviour
     {
         return clipDash;
     }*/
-
-    public AudioSource GetAudioSource()
-    {
-        AudioSource ad = audioSourcesList.Find(x => !x.isPlaying);
-        if (!ad)
-        {
-            for (int i = 0; i < 16; i++)
-            {
-                ad = Instantiate(audioSourceObj);
-                ad.transform.SetParent(transform);
-                audioSourcesList.Add(ad);
-            }
-        }
-        else
-        {
-            ad.pitch = 1f;
-            ad.loop = false;
-        }
-        ad.volume = 1f;
-
-        return ad;
-    }
 
     /*public void AddPower(powerBase pw)
     {

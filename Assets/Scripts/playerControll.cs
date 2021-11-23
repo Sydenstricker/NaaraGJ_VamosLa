@@ -1,54 +1,87 @@
 using UnityEngine;
+using FMODUnity;
 
 public class playerControll : MonoBehaviour
 {
-    private movement2D movement;   
+    private movement2D movement;
+    [SerializeField]
+    private Vector2 sizeDown = Vector2.one;
+    private Vector2 sizeOrg;
+    [SerializeField]
+    private StudioEventEmitter emitterPush = null;
+    private thingPush thingPushHere = null;
 
     // Start is called before the first frame update
     void Awake()
     {
         movement = GetComponent<movement2D>();
+        sizeOrg = GetComponent<CapsuleCollider2D>().size;
     }
 
     private void Update()
     {
-        bool isPushing = false;
-        Vector2 move = Input.GetAxisRaw("Horizontal") * Vector2.right;
+        Vector2 move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        animatorControll2D animatorControll = movement.GetAnimaControll();
 
-        if (movement.DistancieGround() == 0f && move.sqrMagnitude != 0f && movement.GetObstacle(move))
+        if (move.y < 0f && !thingPushHere)
         {
-            //Debug.Log(1);
-            Vector2 posCenter = movement.GetCollider().bounds.center;
-            Vector2 sizPush = movement.GetCollider().bounds.size / 2f;
-            float dist = movement.GetCollider().bounds.size.x;
-
-            RaycastHit2D raycastHit = Physics2D.BoxCast(posCenter, sizPush, movement.AngGround(), move, dist, repository.repositoryX.GetLayerMaskGround());
-            if (raycastHit.collider)
+            if(animatorControll.GetIdAnimaNow() != "Down")
             {
-                //Debug.Log(2);
+                animatorControll.SetActionAnimation("Down", true, false);
+                CapsuleCollider2D capsule = GetComponent<CapsuleCollider2D>();
+                capsule.size = sizeDown;
+                Vector2 offset = capsule.offset;
+                offset.y = sizeDown.y / 2f;
+                capsule.offset = offset;
+            }
+        }
+        else if (movement.DistancieGround() == 0f && Input.GetButton("Fire2"))
+        {
+            if (!thingPushHere)
+            {
+                //Debug.Log(1);
+                Vector2 posCenter = movement.GetCollider().bounds.center;
+                Vector2 sizPush = movement.GetCollider().bounds.size / 2f;
+                float dist = movement.GetCollider().bounds.size.x;
 
-                thingPush thingP = raycastHit.collider.GetComponent<thingPush>();
-                if (thingP)
+                Vector2 dire = Vector2.right;
+
+                if (transform.eulerAngles.y == 180f)
                 {
-                    //Debug.Log(3);
+                    dire *= -1f;
+                }
 
-                    Vector2 push = Quaternion.Euler(Vector3.forward * movement.AngGround()) * move * Time.deltaTime * 12f;
-                    thingP.PushObj(push);
+                RaycastHit2D raycastHit = Physics2D.BoxCast(posCenter, sizPush, movement.AngGround(), dire, dist, repository.repositoryX.GetLayerMaskGround());
+                if (raycastHit.collider)
+                {
+                    //Debug.Log(2);
 
-                    movement.enabled = false;
-                    Rigidbody2D bodyHere = movement.GetRigidbody2D();
-                    bodyHere.constraints = RigidbodyConstraints2D.FreezeRotation;
-                    Vector2 posGo = bodyHere.position + push;
-                    bodyHere.MovePosition(posGo);
-
-                    isPushing = true;
+                    thingPush thingP = raycastHit.collider.GetComponent<thingPush>();
+                    if (thingP)
+                    {
+                        thingP.PushObj(transform);
+                        thingPushHere = thingP;
+                    }
                 }
             }
         }
+        else if(thingPushHere)
+        {
+            thingPushHere.PushObj(null);
+            thingPushHere = null;
+        }
 
-        animatorControll2D animatorControll = movement.GetAnimaControll();
+        if(animatorControll.GetIdAnimaNow() == "Down" && move.y >= 0f)
+        {
+            animatorControll.SetNormalState();
+            CapsuleCollider2D capsule = GetComponent<CapsuleCollider2D>();
+            capsule.size = sizeOrg;
+            Vector2 offset = capsule.offset;
+            offset.y = sizeOrg.y / 2f;
+            capsule.offset = offset;
+        }
 
-        if (!isPushing)
+        if (!thingPushHere)
         {
             if(animatorControll.GetIdAnimaNow() == "Push")
             {
@@ -66,9 +99,23 @@ public class playerControll : MonoBehaviour
             animatorControll.SetActionAnimation("Push", true, false);
         }
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && !thingPushHere)
         {
             movement.MakeJump();
+        }
+
+        if (thingPushHere)
+        {
+            movement.enabled = false;
+            Rigidbody2D body = movement.GetRigidbody2D();
+            if(body.constraints != RigidbodyConstraints2D.FreezeRotation)
+            {
+                body.constraints = RigidbodyConstraints2D.FreezeRotation;
+            }
+            Vector2 speed = move;
+            speed.y = 0f;
+            speed = Quaternion.Euler(Vector3.forward * movement.AngGround()) * speed.normalized;
+            body.velocity = speed;
         }
     }
 }

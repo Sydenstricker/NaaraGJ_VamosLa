@@ -1,4 +1,5 @@
 using UnityEngine;
+using FMODUnity;
 
 public class movement2D : MonoBehaviour
 {
@@ -21,8 +22,11 @@ public class movement2D : MonoBehaviour
     //[SerializeField]
     private float angZ = 0f;
     private Vector2 oldVelocity = Vector2.zero, goToVelocity;
-    private enum changeVelocity { keep, wait, swicht};
+    private enum changeVelocity { keep, wait, swicht };
     private changeVelocity stateVelocity = changeVelocity.keep;
+    [SerializeField]
+    private StudioEventEmitter emitterJump = null, emmiterGround = null, emitterWalk = null;
+    private float timeCanMoveAgain = 0f;
 
     // Start is called before the first frame update
     void Awake()
@@ -67,7 +71,7 @@ public class movement2D : MonoBehaviour
     }
 
     public Collider2D GetCollider()
-    {       
+    {
         return coll2D;
     }
 
@@ -149,13 +153,23 @@ public class movement2D : MonoBehaviour
                     }
                 }
             }
-        }else if(stateVelocity == changeVelocity.swicht)
+        }
+        else if (stateVelocity == changeVelocity.swicht)
         {
             stateVelocity = changeVelocity.keep;
             body2D.velocity = goToVelocity;
         }
 
-            oldVelocity = body2D.velocity;
+        if (!canMakeMovement && timeCanMoveAgain > 0f)
+        {
+            timeCanMoveAgain -= Time.fixedDeltaTime;
+            if (timeCanMoveAgain <= 0f)
+            {
+                canMakeMovement = true;
+            }
+        }
+
+        oldVelocity = body2D.velocity;
 
         ContactPoint2D[] contactPoints = new ContactPoint2D[8];
         int maxContact = coll2D.GetContacts(contactPoints);
@@ -163,7 +177,7 @@ public class movement2D : MonoBehaviour
         obstacleLeft = false;
         obstacleRight = false;
         obstacleUp = false;
-        for(int i=0;i<maxContact; i++)
+        for (int i = 0; i < maxContact; i++)
         {
             PlatformEffector2D effector2D = contactPoints[i].collider.GetComponent<PlatformEffector2D>();
 
@@ -172,7 +186,7 @@ public class movement2D : MonoBehaviour
             {
                 Vector2 v2Aux = Quaternion.Euler(Vector3.forward * effector2D.rotationalOffset) * Vector2.up;
                 float ang = Vector2.SignedAngle(v2Aux, contactPoints[i].normal), angSurface = effector2D.surfaceArc / 2f;
-                if(ang*ang >= angSurface * angSurface)
+                if (ang * ang >= angSurface * angSurface)
                 {
                     dontCount = true;
                 }
@@ -212,7 +226,7 @@ public class movement2D : MonoBehaviour
         }
 
         if (canMakeMovement)
-        {         
+        {
             if (coll2D.sharedMaterial != repository.repositoryX.physicsMaterialCharaterDafault)
             {
                 coll2D.sharedMaterial = repository.repositoryX.physicsMaterialCharaterDafault;
@@ -250,7 +264,7 @@ public class movement2D : MonoBehaviour
                         }
                     }
                     else
-                    {                 
+                    {
                         body2D.constraints = RigidbodyConstraints2D.FreezeRotation;
                         if (veloAux.x > 0f)
                         {
@@ -259,7 +273,7 @@ public class movement2D : MonoBehaviour
                                 veloAux.x = 0f;
                             }
                         }
-                        else if(veloAux.x < 0f)
+                        else if (veloAux.x < 0f)
                         {
                             if (obstacleLeft)
                             {
@@ -328,7 +342,7 @@ public class movement2D : MonoBehaviour
 
             Vector2 vector2Aux2 = transform.position;
             RaycastHit2D[] hits2D = Physics2D.RaycastAll(posOrig, Vector2.down, 1.5f, repository.repositoryX.GetLayerMaskGround());
-            for(int i=0; i<hits2D.Length; i++)
+            for (int i = 0; i < hits2D.Length; i++)
             {
                 if (i == 0)
                 {
@@ -352,9 +366,29 @@ public class movement2D : MonoBehaviour
                 angZ *= -1f;
             }
         }
-        else if(angZ != 0f)
+        else if (angZ != 0f)
         {
             angZ = 0f;
+        }
+
+        if (obstacleDown && emmiterGround && !animatorControll.GetInGround())
+        {
+            emmiterGround.Play();
+        }
+
+        if (emitterWalk)
+        {
+            if (obstacleDown && body2D.velocity.x != 0f)
+            {
+                if (!emitterWalk.IsPlaying())
+                {
+                    emitterWalk.Play();
+                }
+            }
+            else if (emitterWalk.IsPlaying())
+            {
+                emitterWalk.Stop();
+            }
         }
     }
 
@@ -397,7 +431,7 @@ public class movement2D : MonoBehaviour
             /*if(!CompareTag("Player"))
             Debug.Log(direSpeedGo);*/
 
-            if(dire.x != 0f && canTurn)
+            if (dire.x != 0f && canTurn)
             {
                 Turn(dire.x > 0f);
             }
@@ -427,12 +461,15 @@ public class movement2D : MonoBehaviour
             {
                 if (obstacleLeft)
                 {
-                    veloAux.x =- 1f;
+                    veloAux.x = -1f;
                 }
             }
 
             stateVelocity = changeVelocity.wait;
             goToVelocity = veloAux;
+
+            if (emitterJump)
+                emitterJump.Play();
             //body2D.velocity = veloAux;
         }
     }
@@ -485,7 +522,7 @@ public class movement2D : MonoBehaviour
             return 0f;
         }
 
-        RaycastHit2D r = Physics2D.Raycast(transform.position, Vector2.down, 10f,repository.repositoryX.GetLayerMaskGround());
+        RaycastHit2D r = Physics2D.Raycast(transform.position, Vector2.down, 10f, repository.repositoryX.GetLayerMaskGround());
 
         if (r.collider)
         {
@@ -503,7 +540,7 @@ public class movement2D : MonoBehaviour
     public float AngGround()
     {
         float v = angZ;
-        if(transform.eulerAngles.y == 180f)
+        if (transform.eulerAngles.y == 180f)
         {
             v *= -1f;
         }
@@ -519,4 +556,20 @@ public class movement2D : MonoBehaviour
             body2D.velocity = speedX;
         }
     }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        float nY = collision.contacts[0].normal.y;
+        if (!animatorControll.GetInGround() && !obstacleDown && nY > 0f)
+        {
+            Vector2 spdGo = collision.contacts[0].normal * 2f;
+            if (spdGo.y < body2D.velocity.y)
+            {
+                spdGo.y = body2D.velocity.y;
+            }
+            AddForceInBody(spdGo);
+            timeCanMoveAgain = 0.5f;
+        }
+    }
 }
+
