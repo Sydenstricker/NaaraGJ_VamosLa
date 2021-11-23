@@ -56,6 +56,7 @@
     <Compile Include="Assets\Scripts\repository.cs" />
     <Compile Include="Assets\Scripts\auxiliary.cs" />
     <Compile Include="Assets\Scripts\PressEnter.cs" />
+    <Compile Include="Assets\Scripts\PathFinder.cs" />
     <Compile Include="Assets\Scripts\movement2D.cs" />
     <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\EnemySpawnerCav.cs" />
@@ -64,6 +65,8 @@
     <Compile Include="Assets\Scripts\QuitButton.cs" />
     <Compile Include="Assets\GameManager.cs" />
     <Compile Include="Assets\Scripts\playerControll.cs" />
+    <Compile Include="Assets\Scripts\WaveConfigSO.cs" />
+    <Compile Include="Assets\Scripts\SFXManager.cs" />
     <Compile Include="Assets\Scripts\thingPush.cs" />
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\WaveConfig.cs" />
@@ -73,9 +76,8 @@
     <Compile Include="Assets\Scripts\animatorControll2D.cs" />
     <Compile Include="Assets\Scripts\inventory.cs" />
     <Compile Include="Assets\Scripts\TrocaScene.cs" />
-    <Compile Include="Assets\Scripts\SFXManager.cs" />
-    <Compile Include="Assets\Scripts\WaveConfigSO.cs" />
-    <Compile Include="Assets\Scripts\PathFinder.cs" />
+    <Compile Include="Assets\Scripts\Health.cs" />
+    <Compile Include="Assets\Scripts\DamageDealer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
