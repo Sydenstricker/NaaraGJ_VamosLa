@@ -44,9 +44,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Colletable
+  - name: Things
     uniqueID: 2530988023
     locked: 0
   - name: Chars
     uniqueID: 449239615
+    locked: 0
+  - name: Front Chars
+    uniqueID: 2892560165
     locked: 0

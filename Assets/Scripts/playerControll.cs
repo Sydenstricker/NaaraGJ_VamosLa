@@ -23,7 +23,7 @@ public class playerControll : MonoBehaviour
         Vector2 move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         animatorControll2D animatorControll = movement.GetAnimaControll();
 
-        if (move.y < 0f && !thingPushHere)
+        if (move.y < 0f && movement.DistancieGround() == 0f && !thingPushHere)
         {
             if(animatorControll.GetIdAnimaNow() != "Down")
             {
@@ -116,6 +116,7 @@ public class playerControll : MonoBehaviour
             speed.y = 0f;
             speed = Quaternion.Euler(Vector3.forward * movement.AngGround()) * speed.normalized;
             body.velocity = speed;
+            thingPushHere.body.velocity = speed;
         }
     }
 }
