@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject item1Menu;
+    public GameObject player;
   public void VoltarMainMenu()
     {
         FindObjectOfType<AudioManager>().TocaMusicaMainMenu();
@@ -21,5 +23,17 @@ public class GameManager : MonoBehaviour
     public void Skip()
     {
         SceneManager.LoadScene("Level 1");
+    }
+    public void AtivaItem1()
+    {
+        Time.timeScale = 0f;
+        item1Menu.SetActive(true);
+        player.SetActive(false);
+    }
+    public void Retorna()
+    {
+        Time.timeScale = 1f;
+        player.SetActive(true);
+        item1Menu.SetActive(false);
     }
 }

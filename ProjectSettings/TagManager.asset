@@ -6,6 +6,8 @@ TagManager:
   tags:
   - TiraFolego
   - Monologo1
+  - NPC
+  - Item1
   layers:
   - Default
   - TransparentFX
