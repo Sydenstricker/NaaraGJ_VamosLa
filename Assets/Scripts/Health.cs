@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
@@ -8,6 +9,13 @@ public class Health : MonoBehaviour
     [SerializeField] int folego = 300;
     [SerializeField] bool isPlayer = false;
     [SerializeField] GameObject player;
+    public int currentFolego;
+    public OxigenBar oxigenBar;    
+    private void Start()
+    {
+        currentFolego = folego;
+        oxigenBar.SetMaxHealth(folego);
+    }
     private void Update()
     {
         if(folego <=0)
@@ -33,6 +41,7 @@ public class Health : MonoBehaviour
         if (folegoV != null)
         {
             folego -= folegoV.GetDamage();
+            currentFolego -= folegoV.GetDamage();
             //TakeFolego(folego.GetDamage());
             //StartCoroutine(DelayFolego(3));
             //folego.Hit();
@@ -47,6 +56,8 @@ public class Health : MonoBehaviour
         if (folegoV != null)
         {
             folego -= folegoV.GetDamage();
+            currentFolego -= folegoV.GetDamage();
+            oxigenBar.SetHealth(currentFolego);
             //TakeFolego(folego.GetDamage());
             //StartCoroutine(DelayFolego(3));
             //folego.Hit();
@@ -57,6 +68,8 @@ public class Health : MonoBehaviour
             if (folego < 1000)
             {
                 folego += folegoCura.CuraFolego();
+                currentFolego += folegoCura.CuraFolego();
+                oxigenBar.SetHealth(currentFolego);
                 Debug.Log("curou folego");
             }
             else
@@ -68,7 +81,7 @@ public class Health : MonoBehaviour
     
     void TakeDamage(int damage)
     {
-        health -= damage;
+        health -= damage;       
         if(health <= 0)
         {
             if(isPlayer)
