@@ -1277,6 +1277,7 @@ GameObject:
   - component: {fileID: 776415757}
   - component: {fileID: 776415759}
   - component: {fileID: 776415758}
+  - component: {fileID: 776415760}
   m_Layer: 5
   m_Name: Coracoes
   m_TagString: Untagged
@@ -1344,6 +1345,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 776415756}
   m_CullTransparentMesh: 1
+--- !u!114 &776415760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776415756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9567f1b33876f334f8af1904ae6a5282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coracao1: {fileID: 2114774126}
+  coracao2: {fileID: 346638076}
+  coracao3: {fileID: 842968669}
 --- !u!1 &791583991
 GameObject:
   m_ObjectHideFlags: 0

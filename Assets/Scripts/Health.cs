@@ -11,6 +11,9 @@ public class Health : MonoBehaviour
     [SerializeField] GameObject player;
     public int currentFolego;
     public OxigenBar oxigenBar;    
+    private bool perdeu1hp = false;
+    private bool perdeu2hp = false;
+    private bool perdeu3hp = false;
     private void Start()
     {
         currentFolego = folego;
@@ -36,7 +39,25 @@ public class Health : MonoBehaviour
         if (damageDealer != null)
         {
             TakeDamage(damageDealer.GetDamage());
-            damageDealer.Hit();
+            damageDealer.Hit();            
+            if(perdeu1hp == false)
+            {
+                FindObjectOfType<ControladorCoracaoHUD>().Perdeu1HP();
+                perdeu1hp = true;
+                return;
+            }
+            if(perdeu2hp == false)
+            {
+                FindObjectOfType<ControladorCoracaoHUD>().Perdeu2HP();
+                perdeu2hp = true;
+                return;
+            }
+            if(perdeu3hp == false)
+            {
+                FindObjectOfType<ControladorCoracaoHUD>().Perdeu3HP();
+                perdeu3hp = true;
+                return;
+            }
         }
         if (folegoV != null)
         {

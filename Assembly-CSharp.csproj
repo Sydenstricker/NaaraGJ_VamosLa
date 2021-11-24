@@ -55,12 +55,15 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\repository.cs" />
     <Compile Include="Assets\Scripts\auxiliary.cs" />
+    <Compile Include="Assets\FlipaDesflipaMonologo.cs" />
     <Compile Include="Assets\Scripts\PressEnter.cs" />
+    <Compile Include="Assets\OxigenBar.cs" />
     <Compile Include="Assets\Scripts\PathFinder.cs" />
     <Compile Include="Assets\Scripts\movement2D.cs" />
     <Compile Include="Assets\Scripts\DamageDealer.cs" />
     <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\EndGameTrigger.cs" />
+    <Compile Include="Assets\ControlaBalaoPlayer.cs" />
     <Compile Include="Assets\Scripts\EnemySpawnerCav.cs" />
     <Compile Include="Assets\Scripts\fmodMovement.cs" />
     <Compile Include="Assets\Scripts\colletable.cs" />
@@ -83,9 +86,7 @@
     <Compile Include="Assets\Scripts\animatorControll2D.cs" />
     <Compile Include="Assets\Scripts\inventory.cs" />
     <Compile Include="Assets\Scripts\TrocaScene.cs" />
-    <Compile Include="Assets\ControlaBalaoPlayer.cs" />
-    <Compile Include="Assets\FlipaDesflipaMonologo.cs" />
-    <Compile Include="Assets\OxigenBar.cs" />
+    <Compile Include="Assets\ControladorCoracaoHUD.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
