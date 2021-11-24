@@ -10,4 +10,16 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<AudioManager>().TocaMusicaMainMenu();
         SceneManager.LoadScene("MainMenu");
     }
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene("Level 1");
+    }
+    public void Quit()
+    {
+        Application.Quit();
+    }
+    public void Skip()
+    {
+        SceneManager.LoadScene("Level 1");
+    }
 }

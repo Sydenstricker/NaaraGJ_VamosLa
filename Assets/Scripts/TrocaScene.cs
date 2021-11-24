@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class TrocaScene : MonoBehaviour
 {
     public int MainMenu;
-    private float tempoMudaScene = 5f;    
+    [SerializeField] private float tempoMudaScene = 5f;    
     void Start()
     {
         Invoke("Change_Scene", tempoMudaScene);
