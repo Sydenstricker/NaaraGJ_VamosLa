@@ -57,3 +57,6 @@ TagManager:
   - name: Front Chars
     uniqueID: 2892560165
     locked: 0
+  - name: Talks Ballons
+    uniqueID: 3190288013
+    locked: 0

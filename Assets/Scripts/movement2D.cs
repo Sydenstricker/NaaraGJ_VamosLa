@@ -445,33 +445,42 @@ public class movement2D : MonoBehaviour
 
     public void MakeJump()
     {
-        if (canMakeMovement && jumpingCount <= 0f && obstacleDown && canJump)
+        if (canMakeMovement && jumpingCount <= 0f && obstacleDown && canJump && animatorControll.GetIdAnimaNow() != "Jump")
         {
-            jumpingCount = 0.1f;
-            Vector2 veloAux = body2D.velocity;
-            veloAux.y = powerJump;
-            if (veloAux.x > 0f)
-            {
-                if (obstacleRight)
-                {
-                    veloAux.x = 1f;
-                }
-            }
-            else if (veloAux.x < 0f)
-            {
-                if (obstacleLeft)
-                {
-                    veloAux.x = -1f;
-                }
-            }
-
-            stateVelocity = changeVelocity.wait;
-            goToVelocity = veloAux;
-
-            if (emitterJump)
-                emitterJump.Play();
-            //body2D.velocity = veloAux;
+            animatorControll.SetActionAnimation("Jump", false, false);
+            multSpeed = 0f;
         }
+    }
+
+    public void AddForceJump()
+    {
+        jumpingCount = 0.1f;
+        Vector2 veloAux = body2D.velocity;
+        veloAux.y = powerJump;
+        if (veloAux.x > 0f)
+        {
+            if (obstacleRight)
+            {
+                veloAux.x = 1f;
+            }
+        }
+        else if (veloAux.x < 0f)
+        {
+            if (obstacleLeft)
+            {
+                veloAux.x = -1f;
+            }
+        }
+
+        stateVelocity = changeVelocity.wait;
+        goToVelocity = veloAux;
+
+        if (emitterJump)
+            emitterJump.Play();
+
+        animatorControll.SetNormalState();
+        multSpeed = 1f;
+        //body2D.velocity = veloAux;
     }
 
     public void AddForceInBody(Vector2 force)
@@ -530,11 +539,6 @@ public class movement2D : MonoBehaviour
         }
 
         return 10f;
-    }
-
-    public bool IsJumpAnima()
-    {
-        return body2D.velocity.y > 0f;
     }
 
     public float AngGround()

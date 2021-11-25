@@ -10,6 +10,7 @@ public class playerControll : MonoBehaviour
     [SerializeField]
     private StudioEventEmitter emitterPush = null;
     private thingPush thingPushHere = null;
+    private bool triggerGoingUp = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -27,6 +28,7 @@ public class playerControll : MonoBehaviour
         {
             if(animatorControll.GetIdAnimaNow() != "Down")
             {
+                movement.SetMultSpeed(0f);
                 animatorControll.SetActionAnimation("Down", true, false);
                 CapsuleCollider2D capsule = GetComponent<CapsuleCollider2D>();
                 capsule.size = sizeDown;
@@ -71,14 +73,10 @@ public class playerControll : MonoBehaviour
             thingPushHere = null;
         }
 
-        if(animatorControll.GetIdAnimaNow() == "Down" && move.y >= 0f)
+        if(animatorControll.GetIdAnimaNow() == "Down" && move.y >= 0f && !triggerGoingUp)
         {
-            animatorControll.SetNormalState();
-            CapsuleCollider2D capsule = GetComponent<CapsuleCollider2D>();
-            capsule.size = sizeOrg;
-            Vector2 offset = capsule.offset;
-            offset.y = sizeOrg.y / 2f;
-            capsule.offset = offset;
+            triggerGoingUp = true;
+            animatorControll.AtivedTriggerAnima();
         }
 
         if (!thingPushHere)
@@ -104,8 +102,9 @@ public class playerControll : MonoBehaviour
             movement.MakeJump();
         }
 
+        bool pushing = false;
         if (thingPushHere)
-        {
+        {         
             movement.enabled = false;
             Rigidbody2D body = movement.GetRigidbody2D();
             if(body.constraints != RigidbodyConstraints2D.FreezeRotation)
@@ -117,6 +116,32 @@ public class playerControll : MonoBehaviour
             speed = Quaternion.Euler(Vector3.forward * movement.AngGround()) * speed.normalized;
             body.velocity = speed;
             thingPushHere.body.velocity = speed;
+            if (speed.sqrMagnitude != 0f)
+            {
+                if (!emitterPush.IsPlaying())
+                {
+                    emitterPush.Play();
+                }
+
+                pushing = true;
+            }
         }
+
+        if (emitterPush.IsPlaying() && !pushing)
+        {
+            emitterPush.Stop();
+        }
+    }
+
+    public void GoingUp()
+    {
+        triggerGoingUp = false;
+        movement.GetAnimaControll().SetNormalState();
+        CapsuleCollider2D capsule = GetComponent<CapsuleCollider2D>();
+        capsule.size = sizeOrg;
+        Vector2 offset = capsule.offset;
+        offset.y = sizeOrg.y / 2f;
+        capsule.offset = offset;
+        movement.SetMultSpeed(1f);
     }
 }

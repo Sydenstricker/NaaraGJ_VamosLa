@@ -5,7 +5,7 @@ public class animatorControll2D : MonoBehaviour
 {
     private Animator animator;
     private bool normalState = true, resetTimeTrigger = false;
-    private string idAnimaIdle = "Idle", idAnimaWalk = "Walk", idAnimaJump = "Jump", idAnimaFalling = "Falling", animaNow = "Idle";
+    private string idAnimaIdle = "Idle", idAnimaWalk = "Walk", idAnimaFalling = "Falling", animaNow = "Idle";
     // Start is called before the first frame update
     void Awake()
     {
@@ -84,7 +84,17 @@ public class animatorControll2D : MonoBehaviour
     {
         if (inGround)
         {
+            bool groundPast = animator.GetFloat("In ground") == 1f;
             animator.SetFloat("In ground", 1f);
+            if (normalState && inGround != groundPast)
+            {
+                string idAnima = "Falling Ground";
+                if (animaNow != idAnima)
+                {
+                    GetComponent<movement2D>().SetMultSpeed(0f);
+                    SetActionAnimation(idAnima, false, false);
+                }
+            }
         }
         else
         {
@@ -92,12 +102,8 @@ public class animatorControll2D : MonoBehaviour
 
             if (normalState)
             {
-                string idAnima = idAnimaJump;
-                if (falling)
-                {
-                    idAnima = idAnimaFalling;
-                }
-
+                string idAnima = idAnimaFalling;
+              
                 if (animaNow != idAnima)
                 {
                     SetAnimation(idAnima, false);
@@ -106,7 +112,7 @@ public class animatorControll2D : MonoBehaviour
         }
     }
 
-    public void SetDefaultsAnimation(string idle = "Idle", string walk = "Walk", string jump = "Jump", string falling = "Falling")
+    public void SetDefaultsAnimation(string idle = "Idle", string walk = "Walk", string falling = "Falling")
     {
         if (idAnimaIdle != "")
         {
@@ -124,15 +130,6 @@ public class animatorControll2D : MonoBehaviour
         else
         {
             idAnimaWalk = "Walk";
-        }
-
-        if (idAnimaJump != "")
-        {
-            idAnimaJump = jump;
-        }
-        else
-        {
-            idAnimaJump = "Jump";
         }
 
         if (idAnimaFalling != "")
@@ -172,5 +169,10 @@ public class animatorControll2D : MonoBehaviour
     {
         return animator.GetFloat("In ground") == 1f;
 
+    }
+
+    public void AtivedTriggerAnima()
+    {
+        animator.SetTrigger("Trigger");
     }
 }

@@ -4,22 +4,18 @@ using UnityEngine;
 
 public class FlipaDesflipaMonologo : MonoBehaviour
 {
-    private SpriteRenderer monologo;
+    /*private SpriteRenderer monologo;
     void Start()
     {
         monologo = GetComponent<SpriteRenderer>();
-    }
+    }*/
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("A"))
+        if(transform.eulerAngles != Vector3.zero)
         {
-            Debug.Log("flipou");
-        }
-        if(Input.GetButtonDown("D"))
-        {
-            Debug.Log("Desflipou");
+            transform.eulerAngles = Vector3.zero;
         }
     }
 }

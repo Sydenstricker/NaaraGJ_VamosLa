@@ -3,7 +3,7 @@ using UnityEngine;
 public class colletable : MonoBehaviour
 {
     public string description;
-    public AudioClip clipPlayGetted;
+    //public AudioClip clipPlayGetted;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,6 +13,7 @@ public class colletable : MonoBehaviour
         {
             inv.AddItem(this);
             gameObject.SetActive(false);
+            itensCollectInf.itensCollectX.CollectImportantItem(GetComponentInChildren<SpriteRenderer>().sprite, description);
         }
     }
 }

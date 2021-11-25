@@ -96,10 +96,10 @@ MonoBehaviour:
   Path: ../../Assets Script/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637732872818988587
+  lastModified: 637733619569144339
   FileSizes:
   - Name: 
-    Value: 1316
+    Value: 1544
   Exists: 1
 --- !u!114 &-4157140586469034149
 MonoBehaviour:
@@ -128,7 +128,7 @@ MonoBehaviour:
   - {fileID: 5681578685076474947}
   MinDistance: 1
   MaxDistance: 20
-  Length: 30315
+  Length: 10105
 --- !u!114 &-2592039439466080546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,13 +237,44 @@ MonoBehaviour:
   - {fileID: -6299476090511978283}
   - {fileID: 2219433084260454252}
   - {fileID: 638202472095922536}
+  - {fileID: 122732424996642567}
+  - {fileID: 1513635596181952106}
+  - {fileID: 4803282707148325424}
+  - {fileID: 9222796534460462332}
   EditorParameters: []
   MasterBanks:
   - {fileID: 5282718915375781331}
   StringsBanks:
   - {fileID: -4511424656468643133}
-  cacheTime: 637732872818988587
+  cacheTime: 637733619569144339
   cacheVersion: 10
+--- !u!114 &122732424996642567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Actions/roldana
+  m_EditorClassIdentifier: 
+  Path: event:/Actions/roldana
+  Guid:
+    Data1: 502433084
+    Data2: 1108063456
+    Data3: 1306395064
+    Data4: 72777395
+  Banks:
+  - {fileID: 5282718915375781331}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2306
 --- !u!114 &638202472095922536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,6 +302,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 383
+--- !u!114 &1513635596181952106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Actions/push_wagon
+  m_EditorClassIdentifier: 
+  Path: event:/Actions/push_wagon
+  Guid:
+    Data1: -1409162671
+    Data2: 1166713196
+    Data3: 640909191
+    Data4: -1067124761
+  Banks:
+  - {fileID: 5282718915375781331}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2320
 --- !u!114 &2219433084260454252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,6 +356,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2500
+--- !u!114 &4803282707148325424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Actions/push_rock
+  m_EditorClassIdentifier: 
+  Path: event:/Actions/push_rock
+  Guid:
+    Data1: -1667250527
+    Data2: 1284075941
+    Data3: 668079039
+    Data4: -85048003
+  Banks:
+  - {fileID: 5282718915375781331}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 768
 --- !u!114 &5282718915375781331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,10 +398,10 @@ MonoBehaviour:
   Path: ../../Assets Script/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637732872818798544
+  lastModified: 637733619569074325
   FileSizes:
   - Name: 
-    Value: 674048
+    Value: 1327456
   Exists: 1
 --- !u!114 &5667893562541965860
 MonoBehaviour:
@@ -355,12 +440,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/main_track/checkpoint
+  m_Name: parameter:/main_track/checkpoint distance
   m_EditorClassIdentifier: 
-  Name: checkpoint
+  Name: checkpoint distance
   StudioPath: 
   Min: 0
-  Max: 1
+  Max: 20
   Default: 0
   ID:
     data1: 2605624064
@@ -396,3 +481,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 109
+--- !u!114 &9222796534460462332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Items/checkpoint_collision
+  m_EditorClassIdentifier: 
+  Path: event:/Items/checkpoint_collision
+  Guid:
+    Data1: -688821817
+    Data2: 1331309415
+    Data3: 1682103433
+    Data4: 942636218
+  Banks:
+  - {fileID: 5282718915375781331}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1263
