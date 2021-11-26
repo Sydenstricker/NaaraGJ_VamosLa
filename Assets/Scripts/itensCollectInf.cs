@@ -22,7 +22,7 @@ public class itensCollectInf : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") || Input.GetButtonDown("Fire1") || Input.GetButtonDown("Fire2"))
         {
             gameObject.SetActive(false);
             Time.timeScale = 1f;

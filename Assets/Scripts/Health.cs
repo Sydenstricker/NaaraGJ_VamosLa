@@ -1,10 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using FMODUnity;
 
 public class Health : MonoBehaviour
 {
+    public StudioEventEmitter emmiterDamage;
     [SerializeField] int health = 300;
     [SerializeField] int folego = 300;
     [SerializeField] bool isPlayer = false;
@@ -17,7 +18,10 @@ public class Health : MonoBehaviour
     private void Start()
     {
         currentFolego = folego;
-        oxigenBar.SetMaxHealth(folego);
+        if (oxigenBar)
+        {
+            oxigenBar.SetMaxHealth(folego);
+        }
     }
     private void Update()
     {
@@ -25,7 +29,7 @@ public class Health : MonoBehaviour
         {
             if (isPlayer)
             {
-                FindObjectOfType<SFXManager>().DeathSFX();
+                //FindObjectOfType<SFXManager>().DeathSFX();
                 player.SetActive(false);
                 FindObjectOfType<GameplayCanvas>().AtivaMenuMorte();
                 //Destroy(gameObject);
@@ -101,17 +105,21 @@ public class Health : MonoBehaviour
             }
         }
     }
-    
+
     void TakeDamage(int damage)
     {
-        health -= damage;       
-        if(health <= 0)
+        health -= damage;
+        if (emmiterDamage)
         {
-            if(isPlayer)
+            emmiterDamage.Play();
+        }
+
+        if (health <= 0)
+        {
+            if (isPlayer)
             {
-                FindObjectOfType<SFXManager>().DeathSFX();
                 player.SetActive(false);
-                FindObjectOfType<GameplayCanvas>().AtivaMenuMorte();                
+                FindObjectOfType<GameplayCanvas>().AtivaMenuMorte();
                 //Destroy(gameObject);
             }
             else
@@ -120,13 +128,14 @@ public class Health : MonoBehaviour
             }
         }
     }
+
     void TakeFolego(int damageFolego)
     {
         folego =- damageFolego;
         if(folego <= 0)
             if(isPlayer)
             {
-                FindObjectOfType<SFXManager>().DeathSFX();
+                //FindObjectOfType<SFXManager>().DeathSFX();
                 player.SetActive(false);
                 FindObjectOfType<GameplayCanvas>().AtivaMenuMorte();
             }

@@ -18,7 +18,7 @@ public class repository : MonoBehaviour
     /*[SerializeField]
     private LayerMask layerMaskHurt;*/
     [SerializeField]
-    private LayerMask layerMaskGround;
+    private LayerMask layerMaskGround, layerMaskInteract;
     private List<GameObject> listRespawObj = new List<GameObject>();
 
     private void Awake()
@@ -55,6 +55,11 @@ public class repository : MonoBehaviour
     public LayerMask GetLayerMaskGround()
     {
         return layerMaskGround;
+    }
+
+    public LayerMask GetLayerMaskInteract()
+    {
+        return layerMaskInteract;
     }
 
     /*public AudioClip GetClipDash()
