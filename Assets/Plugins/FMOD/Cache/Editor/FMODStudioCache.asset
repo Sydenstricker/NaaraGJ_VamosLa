@@ -42,10 +42,10 @@ MonoBehaviour:
   Path: Assets/Plugins/FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637734240548512948
+  lastModified: 637734550311340724
   FileSizes:
   - Name: 
-    Value: 1544
+    Value: 1758
   Exists: 1
 --- !u!114 &-7070504147257716154
 MonoBehaviour:
@@ -101,6 +101,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 500
+--- !u!114 &-5192994611269157247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemies/snake
+  m_EditorClassIdentifier: 
+  Path: event:/Enemies/snake
+  Guid:
+    Data1: 979310083
+    Data2: 1203079214
+    Data3: 1466270093
+    Data4: -422113829
+  Banks:
+  - {fileID: 2430080444667889414}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2250
 --- !u!114 &-4157140586469034149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,12 +268,15 @@ MonoBehaviour:
   - {fileID: 1513635596181952106}
   - {fileID: 4803282707148325424}
   - {fileID: 9222796534460462332}
+  - {fileID: -5192994611269157247}
+  - {fileID: 1468884840559050229}
+  - {fileID: 5132053448391016399}
   EditorParameters: []
   MasterBanks:
   - {fileID: 2430080444667889414}
   StringsBanks:
   - {fileID: -7381291733920810660}
-  cacheTime: 637734240548512948
+  cacheTime: 637734550311340724
   cacheVersion: 10
 --- !u!114 &122732424996642567
 MonoBehaviour:
@@ -302,6 +332,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 383
+--- !u!114 &1468884840559050229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Character/damage
+  m_EditorClassIdentifier: 
+  Path: event:/Character/damage
+  Guid:
+    Data1: 1568349989
+    Data2: 1123594932
+    Data3: 164124289
+    Data4: 1279488437
+  Banks:
+  - {fileID: 2430080444667889414}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 461
 --- !u!114 &1513635596181952106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,7 +428,7 @@ MonoBehaviour:
   Path: Assets/Plugins/FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637734240548502944
+  lastModified: 637734550311270706
   FileSizes: []
   Exists: 1
 --- !u!114 &4803282707148325424
@@ -401,6 +458,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 768
+--- !u!114 &5132053448391016399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemies/bat
+  m_EditorClassIdentifier: 
+  Path: event:/Enemies/bat
+  Guid:
+    Data1: 1167950729
+    Data2: 1276656628
+    Data3: 854324363
+    Data4: 319469246
+  Banks:
+  - {fileID: 2430080444667889414}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3000
 --- !u!114 &5667893562541965860
 MonoBehaviour:
   m_ObjectHideFlags: 0

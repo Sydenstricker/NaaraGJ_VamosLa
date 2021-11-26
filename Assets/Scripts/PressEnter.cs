@@ -11,7 +11,7 @@ public class PressEnter : MonoBehaviour
     {
         if(isMainMenu && Input.GetKeyDown(KeyCode.Return))
         {
-            SceneManager.LoadScene("Intro Gameplay");
+            SceneManager.LoadScene("Test Scene");
             FindObjectOfType<AudioManager>().TocaMusicaGameplay();
 
         }

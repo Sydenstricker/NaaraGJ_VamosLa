@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ControlaBalaoPlayer : MonoBehaviour
 {
     [SerializeField] GameObject npcComItem;
     [SerializeField] GameObject npcSemItem;
     [SerializeField] GameObject monologo1;
     [SerializeField] GameObject monologo2;
-    private bool temItem = false;
+    [SerializeField] private bool temItem = false;
+    public inventory getItem;
     private void AtivaTelaItem1()
     {
         monologo1.SetActive(true);
@@ -24,6 +26,18 @@ public class ControlaBalaoPlayer : MonoBehaviour
         }
         if(collision.gameObject.CompareTag("NPC"))
         {
+            //getItem = GetComponent<inventory>();
+            //foreach (colletable item in getItem.colletablesList)
+            //{
+            //   if(item.tag == "item1")
+            //   {
+            //      temItem = true;
+            //   }
+            //   else
+            //   {
+            //        temItem = true;
+            //   }
+            //}
             npcSemItem.SetActive(true);
             if(temItem == true)
             {

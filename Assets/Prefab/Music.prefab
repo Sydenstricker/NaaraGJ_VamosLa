@@ -141,13 +141,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08086428855449b49a3df9d60e66dc49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: {fileID: 8300000, guid: 03df927ed6508744eb521054e38feac5, type: 3}
+  musicMainMenu: {fileID: 0}
   musicGameplay: {fileID: 8300000, guid: 2a16dfe8af3a572498998ed74d11cc5a, type: 3}
-  volumeMusic: 1
-  soundFX: {fileID: 0}
-  volumeSFX: 0.75
-  hpNave: {fileID: 0}
-  volumehpNave: 0.75
+  volumeMusic: 0.979
+  isMainMenu: 0
+  isGameplay: 0
 --- !u!114 &5053091397490094138
 MonoBehaviour:
   m_ObjectHideFlags: 0

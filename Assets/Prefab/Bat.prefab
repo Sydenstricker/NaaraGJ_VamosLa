@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1484523818747515779}
   - component: {fileID: 1484523818747515777}
   - component: {fileID: 3371274935245181651}
-  - component: {fileID: 4357049610198718066}
   - component: {fileID: 4818991580744472413}
   - component: {fileID: 568278178647998198}
   m_Layer: 0
@@ -135,28 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b4fb1e2bec40449a8e26a93315b3a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveConfig: {fileID: 11400000, guid: 374375f580a82d4429913a430bf5b60c, type: 2}
---- !u!50 &4357049610198718066
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1484523818747515789}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  waveConfig: {fileID: 11400000, guid: aeb9a7d718fd7234bac80d98d200a7cd, type: 2}
 --- !u!114 &4818991580744472413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,3 +161,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 300
+  folego: 300
+  isPlayer: 0
+  player: {fileID: 0}
+  currentFolego: 0
+  oxigenBar: {fileID: 0}

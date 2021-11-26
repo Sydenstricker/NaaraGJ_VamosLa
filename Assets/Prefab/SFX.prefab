@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundFX: {fileID: 0}
-  volumeSFX: 0.5
+  volumeSFX: 0.529
   hpNave: {fileID: 0}
   volumehpNave: 0.75
   puloSFX: {fileID: 8300000, guid: bf7b94fb2176b544fb68065fda742b9d, type: 3}

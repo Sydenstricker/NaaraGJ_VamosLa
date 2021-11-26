@@ -32,6 +32,8 @@ public class Health : MonoBehaviour
             }
         }
     }
+
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         DamageDealer damageDealer = other.GetComponent<DamageDealer>();
@@ -137,4 +139,6 @@ public class Health : MonoBehaviour
     {
         yield return new WaitForSeconds((delay));
     }
+
+    
 }
