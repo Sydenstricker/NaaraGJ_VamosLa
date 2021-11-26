@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
   public void VoltarMainMenu()
     {
-        FindObjectOfType<AudioManager>().TocaMusicaMainMenu();
+        //FindObjectOfType<AudioManager>().TocaMusicaMainMenu();
         SceneManager.LoadScene("MainMenu");
     }
     public void PlayAgain()
@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     }
     public void Skip()
     {
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene("Test Scene");
     }
     public void AtivaItem1()
     {

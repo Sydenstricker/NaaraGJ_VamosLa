@@ -1,55 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
+using FMODUnity;
+using FMOD.Studio;
 
 public class AudioManager : MonoBehaviour
-{  
-    private AudioSource audio;
-    public AudioClip musicMainMenu;
-    public AudioClip musicGameplay;
-    [SerializeField] [Range(0f, 1f)] float volumeMusic = 0.5f;    
-    
-    [SerializeField] bool isMainMenu = false;
-    [SerializeField] bool isGameplay = false;
+{
+    public static AudioManager audioManagerPrimary = null;
+    public StudioEventEmitter emitterMusicGame = null;
+    public VCA vcaMusic, vcaSfx;
+    [SerializeField] [Range(0f, 1f)] float volumeMusic = 1f;
 
-    
+
     void Start()
     {
-        audio = GetComponent<AudioSource>();
-        if(isMainMenu)
-        {
-            TocaMusicMainMenu();
-        }
-        if(isGameplay)
-        {
-            TocaMusicaGameplay();
-        }        
-    }
-    void Update()
-    {
+        audioManagerPrimary = this;
+        vcaMusic = RuntimeManager.GetVCA("vca:/MUSIC");
+        vcaSfx = RuntimeManager.GetVCA("vca:/SFX");
         AtualizaVolumeMusic(volumeMusic);
     }
-    private void TocaMusicMainMenu()
-    {
-        audio.PlayOneShot(musicMainMenu, volumeMusic);
-    }
-    
+
     public void AtualizaVolumeMusic(float volume)
     {
-        audio.GetComponent<AudioSource>().volume = volumeMusic;
-        volumeMusic = volume;
+        vcaMusic.setVolume(volume);
+        //Debug.Log(vcaMusic + " v ");
     }
-    
-    public void TocaMusicaGameplay()
+
+    /*public void TocaMusicaGameplay()
     {
         audio.Stop();
         audio.PlayOneShot(musicGameplay,volumeMusic);
     }
+
     public void TocaMusicaMainMenu()
     {
         audio.Stop();
         audio.PlayOneShot(musicMainMenu,volumeMusic);
-    } 
+    } */
 
 }

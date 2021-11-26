@@ -75,8 +75,10 @@
     <Compile Include="Assets\Scripts\playerControll.cs" />
     <Compile Include="Assets\AdicionaFolego.cs" />
     <Compile Include="Assets\Scripts\WaveConfigSO.cs" />
+    <Compile Include="Assets\Scripts\chkPoint.cs" />
     <Compile Include="Assets\Folego.cs" />
     <Compile Include="Assets\Scripts\SFXManager.cs" />
+    <Compile Include="Assets\Scripts\triggerAnimaEvent.cs" />
     <Compile Include="Assets\GameplayCanvas.cs" />
     <Compile Include="Assets\Scripts\thingPush.cs" />
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
@@ -87,8 +89,9 @@
     <Compile Include="Assets\Scripts\animatorControll2D.cs" />
     <Compile Include="Assets\Scripts\inventory.cs" />
     <Compile Include="Assets\Scripts\TrocaScene.cs" />
-    <Compile Include="Assets\Scripts\triggerAnimaEvent.cs" />
     <Compile Include="Assets\Scripts\itensCollectInf.cs" />
+    <Compile Include="Assets\Scripts\movePlatform.cs" />
+    <Compile Include="Assets\Scripts\roudana.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
