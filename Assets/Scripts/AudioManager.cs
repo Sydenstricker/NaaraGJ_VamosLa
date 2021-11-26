@@ -1,7 +1,6 @@
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
-
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager audioManagerPrimary = null;
@@ -18,6 +17,10 @@ public class AudioManager : MonoBehaviour
         AtualizaVolumeMusic(volumeMusic);
     }
 
+    private void Update()
+    {
+        AtualizaVolumeMusic(volumeMusic);
+    }
     public void AtualizaVolumeMusic(float volume)
     {
         vcaMusic.setVolume(volume);
