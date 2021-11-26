@@ -15,6 +15,7 @@ public class Health : MonoBehaviour
     private bool perdeu1hp = false;
     private bool perdeu2hp = false;
     private bool perdeu3hp = false;
+    public bool semDano = false;
     private void Start()
     {
         currentFolego = folego;
@@ -35,36 +36,45 @@ public class Health : MonoBehaviour
                 //Destroy(gameObject);
             }
         }
+        //Picar dano
+        if (semDano)
+            StartCoroutine(On_Off_Player(0.02f));
+        
     }
 
     
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //dano enemie
         DamageDealer damageDealer = other.GetComponent<DamageDealer>();
         Folego folegoV = other.GetComponent<Folego>();
         if (damageDealer != null)
         {
-            TakeDamage(damageDealer.GetDamage());
-            damageDealer.Hit();            
-            if(perdeu1hp == false)
+            if (semDano == false && health > 0)
             {
-                FindObjectOfType<ControladorCoracaoHUD>().Perdeu1HP();
-                perdeu1hp = true;
-                return;
-            }
-            if(perdeu2hp == false)
-            {
-                FindObjectOfType<ControladorCoracaoHUD>().Perdeu2HP();
-                perdeu2hp = true;
-                return;
-            }
-            if(perdeu3hp == false)
-            {
-                FindObjectOfType<ControladorCoracaoHUD>().Perdeu3HP();
-                perdeu3hp = true;
-                return;
+                StartCoroutine(ControlDamage(3, damageDealer));
+                           
+                if (perdeu1hp == false)
+                {
+                    FindObjectOfType<ControladorCoracaoHUD>().Perdeu1HP();
+                    perdeu1hp = true;
+                    return;
+                }
+                if (perdeu2hp == false)
+                {
+                    FindObjectOfType<ControladorCoracaoHUD>().Perdeu2HP();
+                    perdeu2hp = true;
+                    return;
+                }
+                if (perdeu3hp == false)
+                {
+                    FindObjectOfType<ControladorCoracaoHUD>().Perdeu3HP();
+                    perdeu3hp = true;
+                    return;
+                }
             }
         }
+        //dano folego
         if (folegoV != null)
         {
             folego -= folegoV.GetDamage();
@@ -78,6 +88,7 @@ public class Health : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
+       
         Folego folegoV = collision.GetComponent<Folego>();
         AdicionaFolego folegoCura = collision.GetComponent<AdicionaFolego>();
         if (folegoV != null)
@@ -148,6 +159,18 @@ public class Health : MonoBehaviour
     {
         yield return new WaitForSeconds((delay));
     }
+    IEnumerator ControlDamage(float delay, DamageDealer damageDealer)
+    {
+        TakeDamage(damageDealer.GetDamage());
+        semDano = true;
+        yield return new WaitForSeconds((delay));
+        semDano = false;
+    }
 
-    
+    IEnumerator On_Off_Player(float delay)
+    {
+        player.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds((delay));
+        player.GetComponentInChildren<SpriteRenderer>().color = Color.white;
+    }
 }

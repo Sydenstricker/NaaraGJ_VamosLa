@@ -8,6 +8,7 @@ TagManager:
   - Monologo1
   - NPC
   - Item1
+  - Enemie
   layers:
   - Default
   - TransparentFX

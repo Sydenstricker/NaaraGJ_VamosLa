@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 568278178647998198}
   m_Layer: 0
   m_Name: Bat
-  m_TagString: Untagged
+  m_TagString: Enemie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,6 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d26e3fa3e7e7e9e428bbade964a706f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  emmiterDamage: {fileID: 0}
   health: 300
   folego: 300
   isPlayer: 0

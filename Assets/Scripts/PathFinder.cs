@@ -17,6 +17,7 @@ public class PathFinder : MonoBehaviour
     void Update()
     {
         FollowPath();
+        
     }
 
     void FollowPath()
