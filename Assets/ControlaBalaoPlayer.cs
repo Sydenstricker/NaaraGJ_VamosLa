@@ -10,7 +10,8 @@ public class ControlaBalaoPlayer : MonoBehaviour
     [SerializeField] GameObject monologo1;
     [SerializeField] GameObject monologo2;
     [SerializeField] private bool temItem = false;
-    public inventory getItem;
+    public List<colletable> getItem;
+    [SerializeField] float tempDialogNPC;
     private void AtivaTelaItem1()
     {
         monologo1.SetActive(true);
@@ -26,23 +27,21 @@ public class ControlaBalaoPlayer : MonoBehaviour
         }
         if(collision.gameObject.CompareTag("NPC"))
         {
-            //getItem = GetComponent<inventory>();
-            //foreach (colletable item in getItem.colletablesList)
-            //{
-            //   if(item.tag == "item1")
-            //   {
-            //      temItem = true;
-            //   }
-            //   else
-            //   {
-            //        temItem = true;
-            //   }
-            //}
-            npcSemItem.SetActive(true);
-            if(temItem == true)
+            getItem = GetComponent<inventory>().colletablesList;
+            if(getItem.Count == 0)
             {
-                npcComItem.SetActive(true);
+                temItem = false;
+                npcSemItem.SetActive(true);
+                Invoke("OcultarDialogNPC", tempDialogNPC);
             }
+            else
+            {
+                temItem = true;
+                npcComItem.SetActive(true);
+                Invoke("OcultarDialogNPC", tempDialogNPC);
+            }
+           
+          
         }
         if(collision.gameObject.CompareTag("Item1"))
         {
@@ -62,6 +61,12 @@ public class ControlaBalaoPlayer : MonoBehaviour
             Destroy(monologo1);
         }
     }
+    void OcultarDialogNPC()
+    {
+        npcComItem.SetActive(false);
+        npcSemItem.SetActive(false);
+    }
+   
     public void ConsegiuItemNPC()
     {
         temItem = true;

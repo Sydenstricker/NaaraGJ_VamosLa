@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 449239615
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 320dc2e072c2c8343a310d9de2d7558c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0cf7bb25af1adb446b0db0a61fdd235f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -136,8 +136,8 @@ GameObject:
   - component: {fileID: 7884907198022200960}
   - component: {fileID: 6933452829979694547}
   - component: {fileID: 4913927008655373278}
-  - component: {fileID: 8195332067554957639}
   - component: {fileID: 1596840446068583050}
+  - component: {fileID: 597856852}
   m_Layer: 6
   m_Name: Jogador
   m_TagString: Player
@@ -264,6 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f47fd2a1712ac46a12fadd6b30a689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colletablesList: []
 --- !u!114 &9125671619986300998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,25 +401,9 @@ MonoBehaviour:
   npcSemItem: {fileID: 0}
   monologo1: {fileID: 8806310080870260827}
   monologo2: {fileID: 0}
---- !u!114 &8195332067554957639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2445459615903853550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d26e3fa3e7e7e9e428bbade964a706f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  emmiterDamage: {fileID: 1596840446068583050}
-  health: 300
-  folego: 1000
-  isPlayer: 1
-  player: {fileID: 2445459615903853550}
-  currentFolego: 0
-  oxigenBar: {fileID: 0}
+  temItem: 0
+  getItem: []
+  tempDialogNPC: 5
 --- !u!114 &1596840446068583050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,6 +434,25 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &597856852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2445459615903853550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d26e3fa3e7e7e9e428bbade964a706f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emmiterDamage: {fileID: 0}
+  health: 300
+  folego: 1000
+  isPlayer: 1
+  player: {fileID: 2445459615903853550}
+  currentFolego: 0
+  oxigenBar: {fileID: 0}
 --- !u!1 &8806310080870260827
 GameObject:
   m_ObjectHideFlags: 0

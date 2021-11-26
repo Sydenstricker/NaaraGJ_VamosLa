@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     }
     public void PlayAgain()
     {
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene("fase01_mine");
     }
     public void Quit()
     {
@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     }
     public void Skip()
     {
-        SceneManager.LoadScene("Test Scene");
+        SceneManager.LoadScene("fase01_mine");
     }
     public void AtivaItem1()
     {

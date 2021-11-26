@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class inventory : MonoBehaviour
 {
-    public List<colletable> colletablesList = new List<colletable>();
+  public List<colletable> colletablesList = new List<colletable>();
 
   public void AddItem(colletable item)
     {

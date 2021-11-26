@@ -1,16 +1,19 @@
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
+using UnityEngine.UI;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager audioManagerPrimary = null;
     public StudioEventEmitter emitterMusicGame = null;
     public VCA vcaMusic, vcaSfx;
     [SerializeField] [Range(0f, 1f)] float volumeMusic = 1f;
-
+    [SerializeField] Slider controlVolume ;
+    
 
     void Start()
     {
+        
         audioManagerPrimary = this;
         vcaMusic = RuntimeManager.GetVCA("vca:/MUSIC");
         vcaSfx = RuntimeManager.GetVCA("vca:/SFX");
@@ -19,6 +22,8 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
+        
+        volumeMusic = controlVolume.value;
         AtualizaVolumeMusic(volumeMusic);
     }
     public void AtualizaVolumeMusic(float volume)
@@ -38,5 +43,7 @@ public class AudioManager : MonoBehaviour
         audio.Stop();
         audio.PlayOneShot(musicMainMenu,volumeMusic);
     } */
+
+   
 
 }
