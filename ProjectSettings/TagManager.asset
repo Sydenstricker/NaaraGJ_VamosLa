@@ -9,6 +9,8 @@ TagManager:
   - NPC
   - Item1
   - Enemie
+  - Ouro
+  - Monologo2
   layers:
   - Default
   - TransparentFX

@@ -78,7 +78,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.0133333, y: 2.07}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -453,6 +453,7 @@ MonoBehaviour:
   player: {fileID: 2445459615903853550}
   currentFolego: 0
   oxigenBar: {fileID: 0}
+  semDano: 0
 --- !u!1 &8806310080870260827
 GameObject:
   m_ObjectHideFlags: 0
