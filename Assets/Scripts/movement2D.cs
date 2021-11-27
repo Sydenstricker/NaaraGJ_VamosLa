@@ -406,6 +406,14 @@ public class movement2D : MonoBehaviour
                 animatorControll.NotInGround(body2D.velocity.y <= 0f, false);
             }
         }
+
+        if(Time.timeScale == 0f)
+        {
+            if (emitterWalk && emitterWalk.IsPlaying())
+            {
+                emitterWalk.Stop();
+            }
+        }
     }
 
     public void MakeMove(Vector2 dire)
@@ -448,7 +456,8 @@ public class movement2D : MonoBehaviour
         if (canMakeMovement && jumpingCount <= 0f && obstacleDown && canJump && animatorControll.GetIdAnimaNow() != "Jump")
         {
             animatorControll.SetActionAnimation("Jump", false, false);
-            multSpeed = 0f;
+            //SetCanMove(false);
+            AddForceJump();
         }
     }
 
@@ -488,7 +497,7 @@ public class movement2D : MonoBehaviour
         SetCanMove(false);
 
         stateVelocity = changeVelocity.wait;
-        goToVelocity = force;
+        AddForceJump();
         //body2D.velocity = force;
     }
 
@@ -564,7 +573,7 @@ public class movement2D : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collision)
     {
         float nY = collision.contacts[0].normal.y;
-        if (!animatorControll.GetInGround() && !obstacleDown && nY > 0f)
+        if (!animatorControll.GetInGround() && jumpingCount <= 0f && !obstacleDown && nY > 0f)
         {
             Vector2 spdGo = collision.contacts[0].normal * 2f;
             if (spdGo.y < body2D.velocity.y)

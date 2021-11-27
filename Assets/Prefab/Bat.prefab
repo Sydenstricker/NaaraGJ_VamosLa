@@ -119,9 +119,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.076298}
+  m_Offset: {x: 0, y: 0.2}
   serializedVersion: 2
-  m_Radius: 0.48604894
+  m_Radius: 0.25
 --- !u!114 &3371274935245181651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,7 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b4fb1e2bec40449a8e26a93315b3a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveConfig: {fileID: 11400000, guid: aeb9a7d718fd7234bac80d98d200a7cd, type: 2}
+  parentWay: {fileID: 0}
+  speedMove: 5
 --- !u!114 &4818991580744472413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,3 +168,4 @@ MonoBehaviour:
   player: {fileID: 0}
   currentFolego: 0
   oxigenBar: {fileID: 0}
+  semDano: 0

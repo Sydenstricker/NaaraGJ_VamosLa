@@ -29,6 +29,7 @@ public class AudioManager : MonoBehaviour
     public void AtualizaVolumeMusic(float volume)
     {
         vcaMusic.setVolume(volume);
+        vcaSfx.setVolume(volume);
         //Debug.Log(vcaMusic + " v ");
     }
 

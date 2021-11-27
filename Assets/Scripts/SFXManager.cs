@@ -14,14 +14,19 @@ public class SFXManager : MonoBehaviour
 
         if (!soundTest.IsPlaying())
         {
-            soundTest.Play();
+            //soundTest.Play();
         }
+    }
+
+    public void AtualizarVolumeMusic(float volume)
+    {
+        AudioManager.audioManagerPrimary.vcaMusic.setVolume(volume);
+
     }
 
     private void FixedUpdate()
     {
-        Debug.Log(123);
-
+        //Debug.Log(gameObject);
         if (!trigger && soundTest.IsPlaying())
         {
             soundTest.Stop();

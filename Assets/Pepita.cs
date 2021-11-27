@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Pepita : MonoBehaviour
 {
-    [SerializeField] int multiplicadorOuro = 1;
+    public static int multiplicadorOuro = 1;
     [SerializeField]int valor = 10;
     [SerializeField]Text txtTotalOuro;
     private int totalOuro = 0;

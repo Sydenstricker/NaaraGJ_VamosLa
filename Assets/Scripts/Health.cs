@@ -47,7 +47,6 @@ public class Health : MonoBehaviour
     {
         //dano enemie
         DamageDealer damageDealer = other.GetComponent<DamageDealer>();
-        Folego folegoV = other.GetComponent<Folego>();
         if (damageDealer != null)
         {
             if (semDano == false && health > 0)
@@ -74,18 +73,8 @@ public class Health : MonoBehaviour
                 }
             }
         }
-        //dano folego
-        if (folegoV != null)
-        {
-            folego -= folegoV.GetDamage();
-            currentFolego -= folegoV.GetDamage();
-            //TakeFolego(folego.GetDamage());
-            //StartCoroutine(DelayFolego(3));
-            //folego.Hit();
-            Debug.Log("tirou folego");
-        }
-        
     }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
        
@@ -115,6 +104,18 @@ public class Health : MonoBehaviour
                 return;
             }
         }
+
+        //dano folego
+        if (folegoV != null)
+        {
+            folego -= folegoV.GetDamage();
+            currentFolego -= folegoV.GetDamage();
+            //TakeFolego(folego.GetDamage());
+            //StartCoroutine(DelayFolego(3));
+            //folego.Hit();
+            Debug.Log("tirou folego");
+        }
+
     }
 
     void TakeDamage(int damage)
@@ -129,8 +130,7 @@ public class Health : MonoBehaviour
         {
             if (isPlayer)
             {
-                player.SetActive(false);
-                FindObjectOfType<GameplayCanvas>().AtivaMenuMorte();
+                Morrer();
                 //Destroy(gameObject);
             }
             else
@@ -138,6 +138,12 @@ public class Health : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    public void Morrer()
+    {
+        player.SetActive(false);
+        FindObjectOfType<GameplayCanvas>().AtivaMenuMorte();
     }
 
     void TakeFolego(int damageFolego)

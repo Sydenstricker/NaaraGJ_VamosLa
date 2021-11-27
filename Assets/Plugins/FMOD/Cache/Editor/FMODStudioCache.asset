@@ -237,12 +237,12 @@ MonoBehaviour:
   Banks:
   - {fileID: -2842759701093401922}
   IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
+  Is3D: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 2250
+  Length: 2375
 --- !u!114 &-5745611121216638478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,7 +285,7 @@ MonoBehaviour:
   Path: Assets/Plugins/FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637734792313060062
+  lastModified: 637735342420523086
   FileSizes: []
   Exists: 1
 --- !u!114 &-2681523940074558376
@@ -315,6 +315,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 768
+--- !u!114 &-789599606454427621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/intro e final track
+  m_EditorClassIdentifier: 
+  Path: event:/Music/intro e final track
+  Guid:
+    Data1: -720095590
+    Data2: 1154226180
+    Data3: -860603716
+    Data4: -589098005
+  Banks:
+  - {fileID: -2842759701093401922}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 24000
 --- !u!114 &-688017092252534796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,10 +357,10 @@ MonoBehaviour:
   Path: Assets/Plugins/FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637734792320080426
+  lastModified: 637735342420633113
   FileSizes:
   - Name: 
-    Value: 1802
+    Value: 1964
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -369,13 +396,42 @@ MonoBehaviour:
   - {fileID: -6754710208963450910}
   - {fileID: -7402872137557559204}
   - {fileID: -7203647073177000993}
+  - {fileID: 1577285940168052519}
+  - {fileID: -789599606454427621}
   EditorParameters: []
   MasterBanks:
   - {fileID: -2842759701093401922}
   StringsBanks:
   - {fileID: -688017092252534796}
-  cacheTime: 637734792320080426
+  cacheTime: 637735342420633113
   cacheVersion: 10
+--- !u!114 &1577285940168052519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Items/Tocha
+  m_EditorClassIdentifier: 
+  Path: event:/Items/Tocha
+  Guid:
+    Data1: 1879027067
+    Data2: 1301430353
+    Data3: 957267851
+    Data4: 1777805039
+  Banks:
+  - {fileID: -2842759701093401922}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5258
 --- !u!114 &3668606496999483450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -502,8 +558,8 @@ MonoBehaviour:
   Banks:
   - {fileID: -2842759701093401922}
   IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
+  Is3D: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20

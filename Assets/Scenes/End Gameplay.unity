@@ -182,10 +182,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -193,9 +193,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Main Menu
-
-'
+  m_Text: Main Menu
 --- !u!222 &39042969
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -379,11 +377,11 @@ RectTransform:
   m_Father: {fileID: 1371418165}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -291, y: -187}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 69, y: 57}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &956756676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -507,6 +505,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8151e2679796520468711332d55c6d7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item1Menu: {fileID: 0}
+  player: {fileID: 0}
 --- !u!4 &978692006
 Transform:
   m_ObjectHideFlags: 0
@@ -722,63 +722,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenu: 3
   tempoMudaScene: 8
---- !u!1001 &1773781976
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5053091397490094136, guid: 441e73de8c2e7504ebd1437a7e874566, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5053091397490094136, guid: 441e73de8c2e7504ebd1437a7e874566, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.7439486
-      objectReference: {fileID: 0}
-    - target: {fileID: 5053091397490094136, guid: 441e73de8c2e7504ebd1437a7e874566, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.9416012
-      objectReference: {fileID: 0}
-    - target: {fileID: 5053091397490094136, guid: 441e73de8c2e7504ebd1437a7e874566, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -114.98993
-      objectReference: {fileID: 0}
-    - target: {fileID: 5053091397490094136, guid: 441e73de8c2e7504ebd1437a7e874566, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5053091397490094136, guid: 441e73de8c2e7504ebd1437a7e874566, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5053091397490094136, guid: 441e73de8c2e7504ebd1437a7e874566, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5053091397490094136, guid: 441e73de8c2e7504ebd1437a7e874566, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5053091397490094136, guid: 441e73de8c2e7504ebd1437a7e874566, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5053091397490094136, guid: 441e73de8c2e7504ebd1437a7e874566, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5053091397490094136, guid: 441e73de8c2e7504ebd1437a7e874566, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5053091397490094142, guid: 441e73de8c2e7504ebd1437a7e874566, type: 3}
-      propertyPath: m_Name
-      value: Music
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 441e73de8c2e7504ebd1437a7e874566, type: 3}
 --- !u!1 &1789675106
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,16 +749,16 @@ RectTransform:
   m_GameObject: {fileID: 1789675106}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 1371418165}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10, y: 77}
-  m_SizeDelta: {x: 168.1301, y: 235.6345}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 33, y: 0}
+  m_SizeDelta: {x: 466, y: 443}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1789675108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -836,7 +779,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2a1c51f71689f7c45a1120719341468b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc1c5993fdceb4b479d084a315d1201c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -854,6 +797,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1789675106}
   m_CullTransparentMesh: 1
+--- !u!1 &1838454430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1838454432}
+  - component: {fileID: 1838454431}
+  m_Layer: 0
+  m_Name: Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1838454431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838454430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -720095590
+      Data2: 1154226180
+      Data3: -860603716
+      Data4: -589098005
+    Path: event:/Music/intro e final track
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!4 &1838454432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838454430}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1991767720
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,11 +890,11 @@ RectTransform:
   m_Father: {fileID: 1371418165}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.739, y: -128}
-  m_SizeDelta: {x: 455.5447, y: 143.3771}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -32, y: 0}
+  m_SizeDelta: {x: 800, y: 600}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1991767722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -915,27 +919,37 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 1
-    m_AlignByGeometry: 0
+    m_Alignment: 0
+    m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Insira aqui o texto END Gameplay
-
-
-    alfa
-
-
-    beta
-
-
-    gama
-
-'
+  m_Text: "Ap\xF3s conseguir ouro o suficiente, comprou sua liberdade e a de seu
+    filho. Depois, adquiriu a mina da Encardideira e, aos poucos, foi comprando a
+    alforria de seus compatriotas. Os escravos libertos por Chico o consideravam
+    rei dando origem ao apelido Chico Rei.\r\n\r\nEste grupo associou-se em uma irmandade
+    em honra de Santa Ifig\xEAnia, que teria sido a primeira irmandade de negros
+    livres de Vila Rica. Ergueram a Igreja de Nossa Senhora do Ros\xE1rio.\r\n\r\nChico
+    Rei conseguiu virar monarca em Ouro Preto, antiga Vila Rica, em Minas Gerais,
+    no s\xE9culo XVIII, com a anu\xEAncia do governador-geral Gomes Freire de Andrada,
+    o conde de Bobadela.\r\n\r\nH\xE1 tamb\xE9m boatos de que, quando perseguido
+    por ter muita liberdade e comprar a liberdade de seu povo, Chico Rei juntou-se
+    \xE0 Igreja Cat\xF3lica, institui\xE7\xE3o muito poderosa \xE0 \xE9poca, e construiu
+    outras igrejas para os padres que lhe apoiavam. A cada igreja constru\xEDda,
+    uma festa de inaugura\xE7\xE3o era realizada, com a coroa\xE7\xE3o do rei.\r\n\r\nChico
+    Rei \xE9 celebrado at\xE9 hoje em festas populares que t\xEAm canto, dan\xE7a,
+    prociss\xE3o e at\xE9 coroa\xE7\xE3o dos reis do Congo. Vem da\xED o nome dessa
+    festividade: Congada, Congado ou simplesmente Congo. A comemora\xE7\xE3o \xE9
+    feita em meses distintos ao longo do ano, por homenagear santos negros na data
+    de anivers\xE1rio de cada um. Por ser uma figura t\xE3o importante no folclore
+    de Ouro Preto, Chico Rei \xE9 celebrado na cidade no m\xEAs de janeiro, j\xE1
+    que ele costumava organizar solenidades no Dia de Reis.\r\n\r\nNo fim do s\xE9culo
+    XVIII, aos 72 anos e acometido por hepatite, Chico Rei veio a falecer em Ouro
+    Preto e seu filho foi considerado o novo \u201Crei do Congado\u201D.\r"
 --- !u!222 &1991767723
 CanvasRenderer:
   m_ObjectHideFlags: 0

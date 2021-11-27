@@ -11,6 +11,9 @@ TagManager:
   - Enemie
   - Ouro
   - Monologo2
+  - Monologo3
+  - Monologo4
+  - DesligaMonologo
   layers:
   - Default
   - TransparentFX

@@ -14,7 +14,7 @@ public class triggerAnimaEvent : MonoBehaviour
     
     public void JumpForce()
     {
-        movement.AddForceJump();
+        //movement.AddForceJump();
     }
 
     public void ReturnNormalState()
